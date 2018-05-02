@@ -18,15 +18,15 @@
 [Usefull Methods](#usefull-methods)  
 
 ## Basics
-*$ irb –– to write ruby in the terminal*  
-*don't use ' in ruby, use " instead*  
-*you can replace most {} with do end and vice versa –– not true for hashes or #{} escapings*  
-*Best Practice: end names that produce booleans with question mark*
-*CRUD: create, read, update, delete*  
-*[1,2].map(&:to_i)*
-*integer = number without decimal || float = number with decimal*
-*tag your variables: $ = global, @ = instance, @@ = class variable*  
-*1_000_000 = 1000000 –– just easier to read*  
+* irb –– to write ruby in the terminal  
+* don't use "'" in ruby, use "\\"" instead
+* you can replace most {} with do end and vice versa –– not true for hashes or #{} escapings
+* Best Practice: end names that produce booleans with question mark
+* CRUD: create, read, update, delete
+* [1,2].map(&:to_i)
+* integer = number without decimal || float = number with decimal
+* tag your variables: $ = global, @ = instance, @@ = class variable
+* 1_000_000 = 1000000 –– just easier to read
 
 ## Vars, Contants, Arrays, Hashes & Symbols
 ```Ruby
@@ -92,8 +92,8 @@ def name(variable=default)
 end
 ```
 
-##Classes
-*custom objects*
+## Classes
+**Custom Objects**
 ```Ruby
 class ClassName # class names are rather written in camelcase
   @@count = 0
@@ -122,7 +122,7 @@ end
 matz = Person.new("Yukihiro")
 matz.show_name # Yukihiro
 ```
-*inheritance*
+**Inheritance**
 ```Ruby
 class DerivedClass < BaseClass; end # if you want to end a Ruby statement without going to a new line, you can just type a semicolon.
 
@@ -195,7 +195,7 @@ lambda { |param| block }
 multiply = lambda { |x| x * 3 }
 y = [1, 2].collect(&multiply) # 3 , 6
 ```
-Diff between blocs and lambdas:  
+Diff between blocks and lambdas:  
 - a lambda checks the number of arguments passed to it, while a proc does not (This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.)  
 - when a lambda returns, it passes control back to the calling method; when a proc returns, it does so immediately, without going back to the calling method.
 So: A lambda is just like a proc, only it cares about the number of arguments it gets and it returns to its calling method rather than returning immediately.
@@ -271,7 +271,7 @@ end
 problem = false  
 print "Good to go!" unless problem –– prints out because problem != true  
 
-##Printing & Putting
+## Printing & Putting
 ```Ruby
 print “bla” 
 puts “test” # puts the text in a separate line
@@ -292,7 +292,7 @@ puts “test” # puts the text in a separate line
 :test.to_s # converts to "test"
 ```  
 
-## User Imput
+## User Input
 ```Ruby
 gets # is the Ruby equivalent to prompt in javascript (method that gets input from the user)
 gets.chomp # removes extra line created after gets (usually used like this)
