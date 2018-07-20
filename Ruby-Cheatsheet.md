@@ -57,7 +57,6 @@ my_hash = { key: "value", key2: "value" } # is equal to { :key => "value", :key2
 ```
 
 ## Methods
-**Methods**
 ```Ruby
 def greeting(hello, *names) # *name is a splat argument, takes several parameters passed in an array
   return "#{hello}, #{names}"
@@ -71,7 +70,6 @@ end
 ```
 
 ## Classes
-**Custom Objects**
 ```Ruby
 class ClassName # Class names are written in camelcase
   NUMBERS = [0, 1, 2]
