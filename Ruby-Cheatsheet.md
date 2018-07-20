@@ -1,22 +1,5 @@
 # Ruby Cheatsheet
 
-##### Table of Contents  
-[Basics](#basics)  
-[Vars, Constants, Arrays, Hashes & Symbols](#vars-constants-arrays-hashes--symbols)  
-[Methods](#methods)
-[Classes](#classes)
-[Modules](#modules)
-[Blocks & Procs](#blocks--procs)  
-[Lambdas](#lambdas)
-[Calculation](#calculation)  
-[Comment](#comment)  
-[Conditions](#conditions)  
-[Printing & Putting](#printing--putting)  
-[User Imput](#user-imput)  
-[Loops](#loops) 
-[Sorting & Comparing](#sorting--comparing)  
-[Usefull Methods](#usefull-methods)  
-
 ## Basics
 * irb –– to write ruby in the terminal  
 * don't use "'" in ruby, use "\\"" instead
@@ -28,7 +11,8 @@
 * tag your variables: $ = global, @ = instance, @@ = class variable
 * 1_000_000 = 1000000 –– just easier to read
 
-## Vars, Contants, Arrays, Hashes & Symbols
+## Variables, Contants, Arrays, Hashes & Symbols
+**Variables**
 ```Ruby
 my_variable = “Hello”  
 my_variable.capitalize! # ! changes the value of the var same as my_name = my_name.capitalize
@@ -95,82 +79,28 @@ end
 ## Classes
 **Custom Objects**
 ```Ruby
-class ClassName # class names are rather written in camelcase
-  @@count = 0
-  attr_reader :name # make it readable
-  attr_writer :name # make it writable
-  attr_accessor :name # makes it readable and writable
+class ClassName # Class names are written in camelcase
+  NUMBERS = [0, 1, 2]
 
-  def Methodname(parameter) 
-    @classVariable = parameter
-    @@count += 1
+  def self.class_method
+    # ...
   end
 
-  def self.show_classVariable
-    @classVariable
+  def initialize(parameter) # The 'initiai 
+    @parameter = paremeter 
   end
 
-  def Person.get_counts # is a class method
-    return @@count
+  private 
+  
+  def private_method
+    puts @parameter
   end 
-  
-  private
-  
-  def private_method; end # Private methods go here
 end
 
 matz = Person.new("Yukihiro")
 matz.show_name # Yukihiro
 ```
-**Inheritance**
-```Ruby
-class DerivedClass < BaseClass; end # if you want to end a Ruby statement without going to a new line, you can just type a semicolon.
-
-class DerivedClass < Base
-  def some_method
-    super(optional args) # When you call super from inside a method, that tells Ruby to look in the superclass of the current class and find a method with the same name as the one from which super is called. If it finds it, Ruby will use the superclass' version of the method.
-      # Some stuff
-    end
-  end
-end
-
-# Any given Ruby class can have only one superclass. Use mixins if you want to incorporate data or behavior from several classes into a single class.
-```
-
-## Modules
-```Ruby
-module ModuleName # module names are rather written in camelcase
-  # variables in modules doesn't make much sence since modules do not change. Use constants. 
-end
-
-Math::PI # using PI constant from Math module. Double colon = scope resolution operator = tells Ruby where you're looking for a specific bit of code.
-
-require 'date' # to use external modules.
-puts Date.today # 2016-03-18
-
-module Action
-  def jump
-    @distance = rand(4) + 2
-    puts "I jumped forward #{@distance} feet!"
-  end
-end
-
-class Rabbit
-  include Action # Any class that includes a certain module can use those module's methods! This now is called a Mixin.
-  extend Action # extend keyword mixes a module's methods at the class level. This means that class itself can use the methods, as opposed to instances of the class.
-  attr_reader :name
-  def initialize(name)
-    @name = name
-  end
-end
-
-peter = Rabbit.new("Peter")
-peter.jump # include
-Rabbit.jump # extend
-```
-
-## Blocks & Procs
-**Code Blocks**  
+## Blocks
 *Blocks are not objects* A block is just a bit of code between do..end or {}. It's not an object on its own, but it can be passed to methods like .each or .select.
 ```Ruby
 def yield_name(name)
@@ -181,25 +111,6 @@ end
 yield_name("Eric") { |n| print "My name is #{n}. " } # My name is Kim. My name is Eric. 
 yield_name("Peter") { |n| print "My name is #{n}. " } # My name is Kim. My name is Eric. My name is Kim. My name is Peter. 
 ```
-**Proc**
-*saves blocks and are objects* A proc is a saved block we can use over and over.
-```Ruby
-cube = Proc.new { |x| x ** 3 }
-[1, 2, 3].collect!(&cube) # [1, 8, 27] # the & is needed to transform the Proc to a block.
-cube.call # call procs directly
-```
-
-## Lambdas
-```Ruby
-lambda { |param| block }
-multiply = lambda { |x| x * 3 }
-y = [1, 2].collect(&multiply) # 3 , 6
-```
-Diff between blocks and lambdas:  
-- a lambda checks the number of arguments passed to it, while a proc does not (This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.)  
-- when a lambda returns, it passes control back to the calling method; when a proc returns, it does so immediately, without going back to the calling method.
-So: A lambda is just like a proc, only it cares about the number of arguments it gets and it returns to its calling method rather than returning immediately.
-
 ## Calculation
 Addition (+)  
 Subtraction (-)  
@@ -215,12 +126,6 @@ string interpolation (#{4})
 
 ## Comment
 ```Ruby
-=begin  
-Bla
-Multyline comment  
-=end
-```  
-```Ruby
 # single line comment
 ```
 
@@ -228,48 +133,25 @@ Multyline comment
 **IF**
 ```Ruby
 if 1 < 2  
-puts “one smaller than two”  
+  puts “one smaller than two”  
 elsif 1 > 2 # *careful not to mistake with else if. In ruby you write elsif*  
-puts “elsif”  
+  puts “elsif”  
 else  
-puts “false”  
+  puts “false”  
 end
 # or
 puts "be printed" if true
 puts 3 > 4 ? "if true" : "else" # else will be putted
 ```  
-**unless**
-```Ruby
-unless false # unless checks if the statement is false (opposite to if).  
-puts “I’m here”  
-else 
-puts “not here”  
-end
-# or
-puts "not printed" unless true
-```  
-**case**
-```Ruby
-case my_var
-  when "some value"
-    ###
-  when "some other value"
-    ###
-  else
-    ###
-end
-# or
-case my_var
-  when "some value" then ###
-  when "some other value" then ###
-  else ###
-end
-```
 
-**&&** –– and  **||** –– or  **!** –– not  
-**(x && (y || w)) && z** –– use parenthesis to combine arguments  
+```Ruby
+&& # and  
+|| # or  
+! # not  
+(x && (y || w)) && z # Use parenthesis to combine arguments  
 problem = false  
-print "Good to go!" unless problem –– prints out because problem != true  
+print "Good to go!" unless problem # Prints out because problem != true  
+```  
 
 ## Printing & Putting
 ```Ruby
@@ -308,40 +190,6 @@ while i < 11
 end  
 ```
 
-**Until loop:**  
-```Ruby
-i = 0  
-until i == 6  
-  puts i  
-  i += 1  
-end
-```  
-
-**For loop**  
-```Ruby
-for i in 1...10 # ... tells ruby to exclude the last number (here 10 if we .. only then it includes the last num)  
-  puts i  
-end  
-```
-
-**Loop iterator**  
-```Ruby
-i = 0  
-loop do
-  i += 1  
-  print "I'm currently number #{i}” # a way to have ruby code in a string   
-  break if i > 5  
-end  
-```
-
-**Next**  
-```Ruby
-for i in 1..5  
-  next if i % 2 == 0 # If the remainder of i / 2 is zero, we go to the next iteration of the loop.  
-  print i  
-end  
-```
-
 **.each**  
 ```Ruby
 things.each do |item| # for each things in things do something while storing that things in the variable item  
@@ -368,12 +216,10 @@ end
 "a".upto("c") { |x| print x, " " } # a b c  
 ```
 
-## Sorting & Comparing
+## Sorting
 ```Ruby
 array = [5,4,1,3,2]
 array.sort! # = [1,2,3,4,5] – works with text and other as well.
-"b" <=> "a" # = 1 – combined comparison operator. Returns 0 if first = second, 1 if first > second, -1 if first < second
-array.sort! { |a, b| b <=> a } # to sort from Z to A instead of A to Z
 ```
 
 ## Useful Methods
