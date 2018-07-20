@@ -1,15 +1,5 @@
 # Ruby Cheatsheet
 
-## Basics
-* irb –– to write ruby in the terminal  
-* You can replace most {} with do/end and vice versa –– not true for hashes or #{} escapings
-* Best Practice: end names that produce booleans with a question mark, '?'
-* CRUD: create, read, update, delete
-* [1,2].map(&:to_i)
-* 3 # integer = number without decimal 
-* 3.5 # float = number with decimal
-* 1_000_000 == 1000000 # Just easier to read
-
 ## Comment
 ```Ruby
 # Comments start with a hash, '#'
@@ -21,10 +11,12 @@ my_variable = “Hello”
 my_variable.capitalize! # ! changes the value of the var same as my_name = my_name.capitalize
 my_variable ||= "Hi" # ||= is a conditional assignment only set the variable if it was not set before. 
 ```
+
 ## Constants
 ```Ruby
 MY_CONSTANT = 3 # Constants are in screaming case (all caps, underscores)
 ```
+
 ## Strings
 ```Ruby
 “Hello”.length # 5  
@@ -60,7 +52,10 @@ my_array[1] –– b
 my_array[2..-1] # c , d , e  
 multi_d = [[0,1],[0,1]]
 [1, 2, 3] << 4 # [1, 2, 3, 4] same as [1, 2, 3].push(4)
+array = [5,4,1,3,2]
+array.sort # = [1,2,3,4,5] – works with text and other as well.
 ```
+
 ## Hashes
 ```Ruby  
 hash = { "key1" => "value1", "key2" => "value2" } # same as objects in JavaScript
@@ -76,6 +71,7 @@ hash.each_value { |v| print v } # ==> value1value2
 my_hash.each_value { |v| print v, " " }
 # ==> 1 2 3
 ```
+
 ## Calculation
 Addition (+)  
 Subtraction (-)  
@@ -123,6 +119,7 @@ end
 matz = Person.new("Yukihiro")
 matz.show_name # Yukihiro
 ```
+
 ## Blocks
 *Blocks are not objects* A block is just a bit of code between do..end or {}. It's not an object on its own, but it can be passed to methods like .each or .select.
 ```Ruby
@@ -134,20 +131,22 @@ end
 yield_name("Eric") { |n| print "My name is #{n}. " } # My name is Kim. My name is Eric. 
 yield_name("Peter") { |n| print "My name is #{n}. " } # My name is Kim. My name is Peter. 
 ```
-## User Input
+
+## Input
 ```Ruby
 gets # is the Ruby equivalent to prompt in javascript (method that gets input from the user)
 gets.chomp # removes extra line created after gets (usually used like this)
 ```
 
-## Printing & Putting
+## Output
 ```Ruby
 print “bla” 
 puts “test” # puts the text in a separate line
 ```
 
 ## Conditions
-**'If' Statements**
+
+**'if' Statements**
 ```Ruby
 if 1 < 2  
   puts “one smaller than two”  
@@ -157,14 +156,17 @@ else
   puts “false”  
 end
 ```
-**Trailing 'If'**
+
+**Trailing 'if'**
 ```Ruby
 puts "be printed" if true
 ```
+
 **Ternary Operator**
 ```Ruby
 puts 3 > 4 ? "if true" : "else" # else will be putted
 ```  
+
 **Boolean Operators**
 ```Ruby
 && # and  
@@ -176,7 +178,8 @@ print "Good to go!" unless problem # Prints out because problem != true
 ```  
 
 ## Loops
-**While loop:**  
+
+**'while' Loops**  
 ```Ruby
 i = 1  
 while i < 11  
@@ -209,22 +212,4 @@ end
 ```Ruby
 10.upto(15) { |x| print x, " " } # 10 11 12 13 14 15  
 "a".upto("c") { |x| print x, " " } # a b c  
-```
-
-## Sorting
-```Ruby
-array = [5,4,1,3,2]
-array.sort! # = [1,2,3,4,5] – works with text and other as well.
-```
-
-## Useful Methods
-```Ruby
-1.is_a? Integer # returns true
-:1.is_a? Symbol # returns true
-"1".is_a? String # returns true
-[1,2,3].map! # Does something to every element (overwrites original with ! mark)
-.map # Is the same as .collect
-1.2.floor # 1 # Rounds a float (a number with a decimal) down to the nearest integer.
-cube.call # Implying that cube is a proc, 'call' calls procs directly 
-Time.now # Displays the actual time
 ```
