@@ -24,7 +24,7 @@ my_variable ||= "Hi" # ||= is a conditional assignment only set the variable if 
 ```
 ## Constants
 ```Ruby
-MY_CONSTANT = # something
+MY_CONSTANT = 3 # Constants are in screaming case (all caps, underscores)
 ```
 ## Strings
 ```Ruby
