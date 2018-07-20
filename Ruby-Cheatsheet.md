@@ -96,10 +96,11 @@ start = greeting("Hi", "Justin", "Maria", "Herbert") # call a method by name
 def name(variable=default)
   ### The last line in here get's returned by default
 end
+
+
+
+
 ```
-
-
-
 
 ## Classes
 ```Ruby
