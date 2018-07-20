@@ -13,7 +13,7 @@
 
 ## Comment
 ```Ruby
-# single line comment
+# Comments start with a hash, '#'
 ```
 
 ## Variables
