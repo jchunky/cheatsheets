@@ -11,6 +11,11 @@
 * tag your variables: $ = global, @ = instance, @@ = class variable
 * 1_000_000 = 1000000 –– just easier to read
 
+## Comment
+```Ruby
+# single line comment
+```
+
 ## Variables
 ```Ruby
 my_variable = “Hello”  
@@ -21,6 +26,34 @@ my_variable ||= "Hi" # ||= is a conditional assignment only set the variable if 
 ```Ruby
 MY_CONSTANT = # something
 ```
+## Strings
+```Ruby
+“Hello”.length # 5  
+"Hello”.reverse # “olleH”  
+"Hello”.upcase # “HELLO”  
+"Hello”.downcase # “hello”  
+“hello”.capitalize # “Hello”  
+“Hello”.include? “i” # Equals to false because there is no i in Hello  
+“Hello”.gsub!(/e/, “o”) # Hollo
+"1".to_i # transform string to integer –– 1
+"test".to_sym # Converts to :test
+"test".intern # :test
+:test.to_s # converts to "test"
+"bla,bla".split(“,”) # Returns an array ["bla", "bla"]
+```  
+
+## Symbols
+```Ruby
+:symbol # symbol is like an ID in html. :Symbols != "Strings"
+# Symbols are often used as Hash keys or referencing method names.
+# They can not be changed once created. They save memory (only one copy at a given time). Faster.
+:test.to_s # converts to "test"
+"test".to_sym # converts to :test
+"test".intern # :test
+# Symbols can be used like this as well:
+my_hash = { key: "value", key2: "value" } # is equal to { :key => "value", :key2 => "value" }
+```
+
 ## Arrays
 ```Ruby  
 my_array = [a,b,c,d,e]  
@@ -44,17 +77,18 @@ hash.each_value { |v| print v } # ==> value1value2
 my_hash.each_value { |v| print v, " " }
 # ==> 1 2 3
 ```
-## Symbols
-```Ruby
-:symbol # symbol is like an ID in html. :Symbols != "Strings"
-# Symbols are often used as Hash keys or referencing method names.
-# They can not be changed once created. They save memory (only one copy at a given time). Faster.
-:test.to_s # converts to "test"
-"test".to_sym # converts to :test
-"test".intern # :test
-# Symbols can be used like this as well:
-my_hash = { key: "value", key2: "value" } # is equal to { :key => "value", :key2 => "value" }
-```
+## Calculation
+Addition (+)  
+Subtraction (-)  
+Multiplication (*)  
+Division (/)  
+Exponentiation (**)  
+Modulo (%)  
+you can do 1 += 1 –– which gives you 2 but 1++ and 1-- does not exist in ruby  
+The concatenation operator (<<)
+"A " << "B" # "A B" but "A " + "B" would work as well but "A " + 4 + " B" not so rather use 
+string interpolation (#{4})
+"A #{4} B" # "A 4 B"
 
 ## Methods
 ```Ruby
@@ -93,30 +127,24 @@ matz.show_name # Yukihiro
 ## Blocks
 *Blocks are not objects* A block is just a bit of code between do..end or {}. It's not an object on its own, but it can be passed to methods like .each or .select.
 ```Ruby
-def yield_name(name)
-  yield("Kim") # print "My name is Kim. "
-  yield(name) # print "My name is Eric. "
+def yield_name(name, &block)
+  block.call("Kim") # print "My name is Kim. "
+  block.call(name) # print "My name is Eric. "
 end
 
 yield_name("Eric") { |n| print "My name is #{n}. " } # My name is Kim. My name is Eric. 
-yield_name("Peter") { |n| print "My name is #{n}. " } # My name is Kim. My name is Eric. My name is Kim. My name is Peter. 
+yield_name("Peter") { |n| print "My name is #{n}. " } # My name is Kim. My name is Peter. 
 ```
-## Calculation
-Addition (+)  
-Subtraction (-)  
-Multiplication (*)  
-Division (/)  
-Exponentiation (**)  
-Modulo (%)  
-you can do 1 += 1 –– which gives you 2 but 1++ and 1-- does not exist in ruby  
-The concatenation operator (<<)
-"A " << "B" # "A B" but "A " + "B" would work as well but "A " + 4 + " B" not so rather use 
-string interpolation (#{4})
-"A #{4} B" # "A 4 B"
-
-## Comment
+## User Input
 ```Ruby
-# single line comment
+gets # is the Ruby equivalent to prompt in javascript (method that gets input from the user)
+gets.chomp # removes extra line created after gets (usually used like this)
+```
+
+## Printing & Putting
+```Ruby
+print “bla” 
+puts “test” # puts the text in a separate line
 ```
 
 ## Conditions
@@ -147,34 +175,6 @@ puts 3 > 4 ? "if true" : "else" # else will be putted
 problem = false  
 print "Good to go!" unless problem # Prints out because problem != true  
 ```  
-
-## String Methods
-```Ruby
-“Hello”.length # 5  
-"Hello”.reverse # “olleH”  
-"Hello”.upcase # “HELLO”  
-"Hello”.downcase # “hello”  
-“hello”.capitalize # “Hello”  
-“Hello”.include? “i” # Equals to false because there is no i in Hello  
-“Hello”.gsub!(/e/, “o”) # Hollo
-"1".to_i # transform string to integer –– 1
-"test".to_sym # Converts to :test
-"test".intern # :test
-:test.to_s # converts to "test"
-"bla,bla".split(“,”) # Returns an array ["bla", "bla"]
-```  
-
-## User Input
-```Ruby
-gets # is the Ruby equivalent to prompt in javascript (method that gets input from the user)
-gets.chomp # removes extra line created after gets (usually used like this)
-```
-
-## Printing & Putting
-```Ruby
-print “bla” 
-puts “test” # puts the text in a separate line
-```
 
 ## Loops
 **While loop:**  
