@@ -98,6 +98,9 @@ def name(variable=default)
 end
 ```
 
+
+
+
 ## Classes
 ```Ruby
 class Person # Class names are written in camelcase
