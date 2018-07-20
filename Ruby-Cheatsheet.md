@@ -120,7 +120,7 @@ string interpolation (#{4})
 ```
 
 ## Conditions
-**If Statement**
+**'If' Statements**
 ```Ruby
 if 1 < 2  
   puts “one smaller than two”  
@@ -130,7 +130,7 @@ else
   puts “false”  
 end
 ```
-**Trailing If**
+**Trailing 'If'**
 ```Ruby
 puts "be printed" if true
 ```
@@ -147,12 +147,6 @@ puts 3 > 4 ? "if true" : "else" # else will be putted
 problem = false  
 print "Good to go!" unless problem # Prints out because problem != true  
 ```  
-
-## Printing & Putting
-```Ruby
-print “bla” 
-puts “test” # puts the text in a separate line
-```
 
 ## String Methods
 ```Ruby
@@ -174,6 +168,12 @@ puts “test” # puts the text in a separate line
 ```Ruby
 gets # is the Ruby equivalent to prompt in javascript (method that gets input from the user)
 gets.chomp # removes extra line created after gets (usually used like this)
+```
+
+## Printing & Putting
+```Ruby
+print “bla” 
+puts “test” # puts the text in a separate line
 ```
 
 ## Loops
