@@ -71,21 +71,19 @@ end
 
 ## Classes
 ```Ruby
-class ClassName # Class names are written in camelcase
+class Person # Class names are written in camelcase
   NUMBERS = [0, 1, 2]
 
   def self.class_method
     # ...
   end
 
-  def initialize(parameter) # The 'initiai 
-    @parameter = paremeter 
+  def initialize(name)
+    @name = name 
   end
 
-  private 
-  
-  def private_method
-    puts @parameter
+  def show_name
+    puts @name
   end 
 end
 
