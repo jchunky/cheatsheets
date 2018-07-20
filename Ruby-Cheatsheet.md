@@ -11,18 +11,17 @@
 * tag your variables: $ = global, @ = instance, @@ = class variable
 * 1_000_000 = 1000000 –– just easier to read
 
-## Variables, Contants, Arrays, Hashes & Symbols
-**Variables**
+## Variables
 ```Ruby
 my_variable = “Hello”  
 my_variable.capitalize! # ! changes the value of the var same as my_name = my_name.capitalize
 my_variable ||= "Hi" # ||= is a conditional assignment only set the variable if it was not set before. 
 ```
-**Constants**
+## Constants
 ```Ruby
 MY_CONSTANT = # something
 ```
-**Arrays**
+## Arrays
 ```Ruby  
 my_array = [a,b,c,d,e]  
 my_array[1] –– b  
@@ -30,7 +29,7 @@ my_array[2..-1] # c , d , e
 multi_d = [[0,1],[0,1]]
 [1, 2, 3] << 4 # [1, 2, 3, 4] same as [1, 2, 3].push(4)
 ```
-**Hashes**
+## Hashes
 ```Ruby  
 hash = { "key1" => "value1", "key2" => "value2" } # same as objects in JavaScript
 hash = { key1: "value1", key2: "value2" } # the same hash using symbols instead of strings
@@ -45,7 +44,7 @@ hash.each_value { |v| print v } # ==> value1value2
 my_hash.each_value { |v| print v, " " }
 # ==> 1 2 3
 ```
-**Symbols**
+## Symbols
 ```Ruby
 :symbol # symbol is like an ID in html. :Symbols != "Strings"
 # Symbols are often used as Hash keys or referencing method names.
@@ -55,11 +54,6 @@ my_hash.each_value { |v| print v, " " }
 "test".intern # :test
 # Symbols can be used like this as well:
 my_hash = { key: "value", key2: "value" } # is equal to { :key => "value", :key2 => "value" }
-```
-
-#### Functions to create Arrays
-```Ruby
-"bla,bla".split(“,”) # takes sting and returns an array (here  ["bla","bla"])
 ```
 
 ## Methods
@@ -130,7 +124,7 @@ string interpolation (#{4})
 ```
 
 ## Conditions
-**IF**
+**If Statement**
 ```Ruby
 if 1 < 2  
   puts “one smaller than two”  
@@ -139,11 +133,16 @@ elsif 1 > 2 # *careful not to mistake with else if. In ruby you write elsif*
 else  
   puts “false”  
 end
-# or
+```
+**Trailing If**
+```Ruby
 puts "be printed" if true
+```
+**Ternary Operator**
+```Ruby
 puts 3 > 4 ? "if true" : "else" # else will be putted
 ```  
-
+**Boolean Operators**
 ```Ruby
 && # and  
 || # or  
@@ -166,12 +165,13 @@ puts “test” # puts the text in a separate line
 "Hello”.upcase # “HELLO”  
 "Hello”.downcase # “hello”  
 “hello”.capitalize # “Hello”  
-“Hello”.include? “i” # equals to false because there is no i in Hello  
+“Hello”.include? “i” # Equals to false because there is no i in Hello  
 “Hello”.gsub!(/e/, “o”) # Hollo
 "1".to_i # transform string to integer –– 1
-"test".to_sym # converts to :test
+"test".to_sym # Converts to :test
 "test".intern # :test
 :test.to_s # converts to "test"
+"bla,bla".split(“,”) # Returns an array ["bla", "bla"]
 ```  
 
 ## User Input
@@ -227,9 +227,9 @@ array.sort! # = [1,2,3,4,5] – works with text and other as well.
 1.is_a? Integer # returns true
 :1.is_a? Symbol # returns true
 "1".is_a? String # returns true
-[1,2,3].collect!() # does something to every element (overwrites original with ! mark)
-.map() # is the same as .collect
-1.2.floor # 1 # rounds a float (a number with a decimal) down to the nearest integer.
-cube.call # implying that cube is a proc, call calls procs directly 
-Time.now # displays the actual time
+[1,2,3].map! # Does something to every element (overwrites original with ! mark)
+.map # Is the same as .collect
+1.2.floor # 1 # Rounds a float (a number with a decimal) down to the nearest integer.
+cube.call # Implying that cube is a proc, 'call' calls procs directly 
+Time.now # Displays the actual time
 ```
