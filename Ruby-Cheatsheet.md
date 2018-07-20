@@ -2,14 +2,13 @@
 
 ## Basics
 * irb –– to write ruby in the terminal  
-* don't use "'" in ruby, use "\\"" instead
-* you can replace most {} with do end and vice versa –– not true for hashes or #{} escapings
-* Best Practice: end names that produce booleans with question mark
+* You can replace most {} with do/end and vice versa –– not true for hashes or #{} escapings
+* Best Practice: end names that produce booleans with a question mark, '?'
 * CRUD: create, read, update, delete
 * [1,2].map(&:to_i)
-* integer = number without decimal || float = number with decimal
-* tag your variables: $ = global, @ = instance, @@ = class variable
-* 1_000_000 = 1000000 –– just easier to read
+* 3 # integer = number without decimal 
+* 3.5 # float = number with decimal
+* 1_000_000 == 1000000 # Just easier to read
 
 ## Comment
 ```Ruby
